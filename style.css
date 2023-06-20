@@ -15,6 +15,9 @@ body{
     background: linear-gradient(to right, #e8e8e8, #c1c1c1);
     width: 500px;
     height: 320px;
+    border: 2px solid #6b6a6a;
+    display: flex;
+    flex-direction: column;
 }
 
 .teclado{
@@ -29,7 +32,7 @@ body{
 }
 
 .botoes{
-    width: 70px;
+    width: 80px;
     height: 40px;
     background-color: black;
     font-size: 25px;
@@ -39,5 +42,47 @@ body{
     justify-content: center;
     margin: 10px;
     cursor: pointer;
-    box-shadow: 3px 3px 0px #999;
+    box-shadow: 2px 2px 0px #999;
+}
+
+.botao-cancela{
+    background-color: white;
+    color: black;
+    font-size: 13px;
+
+}
+
+.botao-corrigir{
+    background-color: rgb(247, 88, 31);
+    color: black;
+    font-size: 13px;
+
+}
+
+.botao-confirma{
+    background-color: rgb(48, 145, 48);
+    color: black;
+    font-size: 13px;
+
+}
+
+.d-1{
+    flex: 1;
+    display: flex;
+}
+
+.d-1-left{
+    flex: 1;
+
+}
+
+.d-1-right{
+    width: 90px;
+}
+
+.d-2{
+    height: 50px;
+    font-size: 14px;
+    padding-left: 10px;
+    border-top: 2px solid rgb(83, 83, 83);
 }
