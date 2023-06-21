@@ -28,13 +28,40 @@ function comecarEtapa(){
     seuVotoPara.style.display = 'none';
     cargo.innerHTML = etapa.titulo;
     descricao.innerHTML = '';
-    aviso.innerHTML = '';
+    aviso.style.display = 'none';
     lateral.innerHTML = '';
     numeros.innerHTML = numeroHtml;
 }
 
 function atualizaInterface(){
-    alert('Acabou de finalizar o voto!');
+    let etapa = etapas[etapaAtual];
+    let candidato = etapa.candidatos.filter((item)=>{
+        if(item.numero === numero){
+            return true;
+        }else{
+            return false;
+        }
+    })
+    if(candidato.length > 0){
+        candidato = candidato[0];
+
+        seuVotoPara.style.display = 'block';
+        aviso.style.display = 'block';
+        descricao.innerHTML = `Nome: ${candidato.nome}<br/> Partido: ${candidato.partido}`;
+
+        let fotoHtml = '';
+
+        for(let i in candidato.fotos){
+            fotoHtml += `<div class="d-1-imagem"><img src="imagens/${candidato.fotos[i].url}" alt="">${candidato.fotos[i].legenda}</div>`; 
+        }
+
+        lateral.innerHTML = fotoHtml;
+
+    }else{
+        seuVotoPara.style.display = 'block';
+        aviso.style.display = 'block';
+        descricao.innerHTML = '<div class="aviso--grande pisca">VOTO NULO</div>';
+    }
 }
 
 //Declarando funções dos botões ou clicks
