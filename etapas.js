@@ -32,7 +32,7 @@ let etapas = [
                 vice: 'Bere',
                 fotos: [
                     {url: '84.jpg', legenda: 'Prefeito', small: false},
-                    {url: '84.jpg', legenda: 'Vice-Prefeito', small: true}
+                    {url: '84_2.jpg', legenda: 'Vice-Prefeito', small: true}
                 ] 
             },
             {
@@ -42,7 +42,7 @@ let etapas = [
                 vice: 'Lurdes',
                 fotos: [
                     {url: '99.jpg', legenda: 'Prefeito', small: false},
-                    {ùrl: '99-2.jpg', legenda: 'Vice-Prefeito', small: true}
+                    {url: '99_2.jpg', legenda: 'Vice-Prefeito', small: true}
                 ]
             }
         ]

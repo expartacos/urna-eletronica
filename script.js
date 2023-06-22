@@ -12,10 +12,13 @@ let numeros = document.querySelector('.d-1-3');
 
 let etapaAtual = 0;
 let numero = '';
+let votoBranco = false;
 
 function comecarEtapa(){
     let etapa = etapas[etapaAtual];
     let numeroHtml = '';
+    numero = '';
+    votoBranco = false;
 
     for(let i = 0; i < etapa.numeros; i++){
         if(i === 0){
@@ -52,7 +55,11 @@ function atualizaInterface(){
         let fotoHtml = '';
 
         for(let i in candidato.fotos){
-            fotoHtml += `<div class="d-1-imagem"><img src="imagens/${candidato.fotos[i].url}" alt="">${candidato.fotos[i].legenda}</div>`; 
+            if(candidato.fotos[i].small){
+                fotoHtml += `<div class="d-1-imagem small"><img src="imagens/${candidato.fotos[i].url}" alt="">${candidato.fotos[i].legenda}</div>`;
+            }else{
+                fotoHtml += `<div class="d-1-imagem"><img src="imagens/${candidato.fotos[i].url}" alt="">${candidato.fotos[i].legenda}</div>`; 
+            }
         }
 
         lateral.innerHTML = fotoHtml;
@@ -81,15 +88,43 @@ function clicou (n){
 }
 
 function branco(){
-    alert('clicou em branco');
+    if(numero === ''){
+        votoBranco = true;
+        seuVotoPara.style.display = 'block';
+        aviso.style.display = 'block';
+        numeros.innerHTML = '';
+        descricao.innerHTML = '<div class="aviso--grande pisca">VOTO EM BRANCO</div>';
+    }else{
+        alert('Para vota em BRANCO não pode digitar nem um número')
+    }
 }
 
 function corrigir(){
-    alert('clicou em corrigir');
+    comecarEtapa();
 }
 
 function confirmar(){
-    alert('clicou em confirmar');
+    let etapa = etapas[etapaAtual];
+    let confirmaVoto = false;
+
+    if(votoBranco === true){
+        confirmaVoto = true
+        console.log('Confirmando voto em Branco');
+    }else if(numero.length === etapa.numeros){
+        confirmaVoto = true;
+        console.log('Confirmando como '+numero);
+    }
+
+    if (confirmaVoto){
+        etapaAtual ++;
+        if (etapas[etapaAtual] !== undefined){
+            comecarEtapa();
+        }else{
+            console.log('FIM!');
+        }
+    }
 }
 
 comecarEtapa();
+
+
