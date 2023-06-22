@@ -168,3 +168,12 @@ img{
     text-align: center;
     padding-top: 40px;
 }
+
+.aviso--gigante{
+    font-size: 80px;
+    font-weight: bold;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
